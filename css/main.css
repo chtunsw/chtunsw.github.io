@@ -1,0 +1,66 @@
+.pageFrame {
+	background: url(../img/background/frameBackground.jpg);
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	height: auto;
+	z-index: 1;
+}
+
+.webHeader {
+	position: fixed;
+	top:0px;
+	width: 100%;
+	height: 100px;
+	background-color: #9dbdcd;
+	z-index: 999;
+}
+
+.siteTitle {
+	width: auto;
+	height: auto;
+	font-size: 25px;
+	font-weight: 500;
+	text-align: center;
+	margin:35px 0 0 0;
+	position: absolute;
+	left:5%;
+	color:white;
+	display:inline-block;
+}
+
+.page {
+	position: relative;
+	background-color: rgba(237, 16, 16, 0.34);
+	margin: 125px auto 25px auto;
+	width: 80%;
+	height: 1000px;
+	z-index: 2;
+}
+
+.pageHeader {
+	width: 100%;
+	height: 300px;
+	background-color: rgba(91, 213, 16, 0.56);
+}
+
+.pageContent {
+	width: 100%;
+	height: 500px;
+	background-color: rgba(255, 255, 255, 0.58);
+}
+
+
+.photo {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.personalPhoto {
+	width: 400px;
+	height: 400px;
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	z-index: 3;
+}
