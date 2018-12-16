@@ -64,3 +64,21 @@
 	left: 50px;
 	z-index: 3;
 }
+
+.infoBlock {
+	width: 400px;
+	height: 200px;
+	position: absolute;
+	top: 50px;
+	right: 50px;
+	background-color: rgba(100, 213, 163, 0.56);
+	text-align: center;
+	z-index: 3;
+}
+
+.iconFrame {
+	width: 20px;
+	height: 20px;
+	margin: auto;
+	z-index: 3;
+}
