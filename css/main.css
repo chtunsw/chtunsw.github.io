@@ -45,11 +45,40 @@
 }
 
 .pageContent {
+	position: relative;
 	width: 100%;
 	height: 500px;
 	background-color: rgba(255, 255, 255, 0.58);
 }
 
+.aboutMe {
+	float: left;
+	position: relative;
+	width: 50%;
+	height: 100%;
+	background-color: grey;
+}
+
+.aboutMe__text {
+	position: absolute;
+	top: 100px;
+	padding: 50px;
+	background-color: green;
+}
+
+.personalInfo {
+	float:left;
+	width: 50%;
+	height: 100%;
+	background-color: orange;
+}
+
+.personalInfo__text {
+	position: absolute;
+	top: 100px;
+	padding: 60px;
+	background-color: pink;
+}
 
 .photo {
     max-width: 100%;
