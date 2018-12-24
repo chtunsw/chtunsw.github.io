@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Chatroom</title>
+	<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyCxepxkzpJ4sysUS2LjZhtZ52MaqwWVkd4",
+	    authDomain: "testproject-52455.firebaseapp.com",
+	    databaseURL: "https://testproject-52455.firebaseio.com",
+	    projectId: "testproject-52455",
+	    storageBucket: "testproject-52455.appspot.com",
+	    messagingSenderId: "793011152738"
+	  };
+  firebase.initializeApp(config);
+    var commentsRef = firebase.database().ref('comments/');
+    function writeData(name, email, content){
+    	commentsRef.push(
+	    	{
+	    		name:name,
+	    		email:email,
+	    		content:content
+	    	}
+    	)
+    }
+    window.onload = function() {
+    	function addComment(){
+        var email = document.getElementById('email').value
+        var name = document.getElementById('name').value
+        var content = document.getElementById('content').value
+
+        writeData(name,email,content)
+    	}
+
+document.getElementById('button').addEventListener('click',addComment)
+
+	commentsRef.on('child_added', function (data) {
+		addCommentElement(data.val().name,data.val().content)
+		})
+
+	function addCommentElement(name,content){
+		var ele = document.getElementById('comments')
+		ele.innerHTML += '<li class="list-group-item"><small>'+name+':</small>'+content+'</li>';
+	}
+
+    }
+</script>
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+	<div class="row">
+		<form class="form-horizontal">
+			<div class="form-group">
+						<label for="name">Name</label>
+			<input class="form-control" type="text" name="name" id="name" placeholder="Input your name">
+		</div>
+		<div class="form-group">
+						<label for="email">Email</label>
+			<input class="form-control" type="email" name="email" id="email" placeholder="Input your email">
+		</div>
+		<div class="form-group">
+			<textarea class="form-control" id="content"></textarea>
+		</div>
+				<button id="button" type="button" class="btn btn-danger">Send</button>
+
+		</form>
+		
+	</div>
+	<div class="row">
+		<ul class="list-group list-group-flush" id="comments">
+</ul>
+	</div>
+	<a href="../index.html">back</a>
+</div>
+</body>
+</html>
