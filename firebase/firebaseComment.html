@@ -21,14 +21,15 @@
 	  var commentsRef = firebase.database().ref('comments/');
 
 	  //write comments record to database
-	  function writeData(id, name, img, email, comment) {
+	  function writeData(id, name, img, email, comment, time) {
 	  	commentsRef.push(
 		  	{	
 		  		id:id,
 		  		name:name,
 		  		img:img,
 		  		email:email,
-		  		comment:comment
+		  		comment:comment,
+		  		time:time
 		  	}
 	  	)
 	  }
@@ -44,14 +45,16 @@
 	  		var email = profile.getEmail()
 	  		var img = profile.getImageUrl()
 	  		var comment = document.getElementById('commentID').value
-	  		writeData(id, name, img, email, comment)
+	  		var newDate = new Date()
+	  		var time = newDate.toTimeString()
+	  		writeData(id, name, img, email, comment, time)
 	  	}
 
 	  	//add comment element to html page
-		function addCommentElement(id, name, email, img, comment) {
+		function addCommentElement(id, name, email, img, comment, time) {
 			//get comments list element
 			var ele = document.getElementById("comments")
-			ele.innerHTML += '<li class="list-group-item">'+'id:'+id+'<br>'+'<img width="20" height="20" src="'+img+'" />'+name+'<br>'+email+'<br>'+'<p style="color:blue">'+comment+'</p>'+'</li>'
+			ele.innerHTML += '<li class="list-group-item">'+'id:'+id+'<br>'+'<img width="20" height="20" src="'+img+'" />'+name+'<br>'+email+'<br>'+'<span style="color:blue">'+comment+'</span>' + '<br>' + time +'</li>'
 		}
 
 	  //add onload event listener
@@ -62,7 +65,7 @@
 
 		//excute for every existing child, and every time a new child added in database
 	  	commentsRef.on('child_added', function (data) {
-	  		addCommentElement(data.val().id, data.val().name, data.val().email, data.val().img, data.val().comment)
+	  		addCommentElement(data.val().id, data.val().name, data.val().email, data.val().img, data.val().comment, data.val().time)
 	  	})
 	  }
 	  )
