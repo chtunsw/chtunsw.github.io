@@ -21,39 +21,48 @@
 	  var commentsRef = firebase.database().ref('comments/');
 
 	  //write comments record to database
-	  function writeData(name, email, comment) {
+	  function writeData(id, name, img, email, comment) {
 	  	commentsRef.push(
-		  	{
+		  	{	
+		  		id:id,
 		  		name:name,
+		  		img:img,
 		  		email:email,
 		  		comment:comment
 		  	}
 	  	)
 	  }
 
-	  //get values and write to database
-	  window.addEventListener("load", function() { //execute after html loading finished, to get following elements' value
-	  	//console.log("page loaded in DOM")
+	  //add comment record to database
 	  	function addComment(){
-	  		var name = document.getElementById('nameID').value
-	  		var email = document.getElementById('emailID').value
+	  		//init auth2 from gapi
+	  		var auth2 = gapi.auth2.init()
+	  		var profile = auth2.currentUser.get().getBasicProfile()
+	  		//get values from profile
+	  		var id = profile.getId()
+	  		var name = profile.getName()
+	  		var email = profile.getEmail()
+	  		var img = profile.getImageUrl()
 	  		var comment = document.getElementById('commentID').value
-	  		writeData(name, email, comment)
+	  		writeData(id, name, img, email, comment)
 	  	}
+
+	  	//add comment element to html page
+		function addCommentElement(id, name, email, img, comment) {
+			//get comments list element
+			var ele = document.getElementById("comments")
+			ele.innerHTML += '<li class="list-group-item">'+'id:'+id+'<br>'+'<img width="20" height="20" src="'+img+'" />'+name+'<br>'+email+'<br>'+'<p style="color:blue">'+comment+'</p>'+'</li>'
+		}
+
+	  //add onload event listener
+	  window.addEventListener("load", function() { //execute after html loading finished, to get following elements' value
 
 	  	//add click event listener
 	  	document.getElementById("buttonID").addEventListener('click',addComment)
 
-	  	//add comment element 
-		function addCommentElement(name, comment) {
-			//get comments list element
-			var ele = document.getElementById("comments")
-			ele.innerHTML += '<li class="list-group-item"><small>'+name+': </small>'+comment+'</li>'
-		}
-
 		//excute for every existing child, and every time a new child added in database
 	  	commentsRef.on('child_added', function (data) {
-	  		addCommentElement(data.val().name, data.val().comment)
+	  		addCommentElement(data.val().id, data.val().name, data.val().email, data.val().img, data.val().comment)
 	  	})
 	  }
 	  )
@@ -63,33 +72,71 @@
 	<meta name="google-signin-client_id" content="802438001010-m1k5ms9adurv18itea8l31fbp0jig4mu.apps.googleusercontent.com">
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 
-</head>
-<body>
-	<!--OAuth test-->
-	<div class="g-signin2" data-onsuccess="onSignIn"></div>
+	<!--signed in print-->
+	<script type="text/javascript">
+		function onSignIn(googleUser) {
+			var profile = googleUser.getBasicProfile();
+			console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+			console.log('Name: ' + profile.getName());
+			console.log('Image URL: ' + profile.getImageUrl());
+			console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 
+			//display login info, hide login button
+			document.getElementById("login").style.display = "none";
+			document.getElementById("data").style.display = "block";
+			document.getElementById("pic").setAttribute('src',profile.getImageUrl());
+			document.getElementById("email").innerHTML = profile.getEmail();
+		}
+
+	  //signed out
+	  function signOut() {
+	    var auth2 = gapi.auth2.getAuthInstance();
+	    auth2.signOut().then(function () {
+	    	//display login button, hide login info
+	    	document.getElementById("login").style.display = "inline";
+	    	document.getElementById("data").style.display = "none";
+	    	console.log('User signed out.');
+	    });
+	  }
+
+	  //add onload event listener
+	  window.addEventListener("load", function() {
+	  	document.getElementById("logout").addEventListener('click',signOut)
+	  })
+	</script>
+</head>
+
+<body>
+	<!--comments-->
 	<div class="container">
+		<a href="../index.html">back</a>
+		<div class="row">
+			Comments:
+			<ul class="list-group list-group-flush" id="comments">
+			</ul>
+		</div>
+		<!--OAuth login-->
+		<div id="login" class="g-signin2" style="text-align: center;" data-onsuccess="onSignIn"></div>
+	</div>
+
+	<div id="data" class="container" style="display: none">
+		<div class="row" style="display: block">
+			<!--OAuth info-->
+			<p>loged in as:</p>
+			<img id="pic" width="100" height="100" />
+			<p id="email"></p>
+			<!--OAuth log out-->
+			<button id="logout">Sign out</button>
+		</div>
+		<!--add comment-->
 		<div class="row">
 			<form class="form-horizontal">
-				<div class="form-group">
-					<label for="nameID">Name:</label>
-					<input class="form-control" type="text" name="name" id="nameID" placeholder="input your name">
-				</div>
-				<div class="form-group">
-					<label for="emailID">Email:</label>
-					<input class="form-control" type="text" name="email" id="emailID" placeholder="input your email">
-				</div>
 				<div class="form-group">
 					<textarea id="commentID" name="comment" class="form-control"></textarea>
 				</div>
 				<button type="button" id="buttonID" class="btn btn-danger">submit</button>
 			</form>
 		</div>
-		<div class="row">
-			<ul class="list-group list-group-flush" id="comments">
-			</ul>
-		</div>
-		<a href="../index.html">back</a>
 	</div>
 </body>
 </html>
