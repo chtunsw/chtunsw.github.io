@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-	
 		<!-- Bootstrap CSS -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" href="./css/bootstrap.min.css">
@@ -14,82 +13,63 @@
 	</head>
 	<body>
 		<!--loader-->
+		<!--
 		<div id="loader" class="loader">
 			<div class="loader__gif"></div>
 		</div>
-
+		-->
+		
 		<!--header-->
-		<header class="webHeader">
-			<div class="webHeader__title">
-				Haotian Chen
+		<nav id="navbar" class="pageheader navbar navbar-expand-lg navbar-light fixed-top">
+			<a class="navbar-brand" href="#">Haotian Chen</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" id="homelink" href="#">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="resumelink" href="#">Resume</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="workslink" href="#">Works</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="commentslink" href="#">Comments</a>
+					</li>
+				</ul>
 			</div>
-			<div class="webHeader__title" style="left:auto; right:5%">
-				<a href="firebase/firebaseComment.html">Comment</a>
-			</div>
-		</header>
-		<!--page frame-->
-		<div class="flexBox" style="margin-top: 150px">
-			<div>
-				<img class="photo" src="img/photo/photo.png">
-			</div>
-			<div>
-				<div style="text-align: center">
-					<h1>Haotian Chen</h1>
-					<h3>web developer</h3>
-					<div class="iconHolder">
-						<div class="iconFrame">
-							<a href="https://github.com/chtunsw/chtunsw.github.io" target="_blank">
-								<img class="photo" src="./img/icon/github.png">
-							</a>
-						</div>
-						<div class="iconFrame">
-							<a href="https://www.linkedin.com/in/haotian-chen-58483n147" target="_blank">
-								<img class="photo" src="./img/icon/linkedin.png">
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
+		</nav>
+		
+		
+		<!--home page-->
+		<div id='homepage' class="container pagecard">
+			<h1>Home Page</h1>
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		</div>
+		<!--resume page-->
+		<div id='resumepage' class="container pagecard">
+			<h1>Resume Page</h1>
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 		</div>
 
-		<div class="flexBox" style="margin-bottom: 150px">
-			<div style="background-color: rgba(72, 155, 204, 0.56)">
-				<div>
-					<h1>About Me</h1>
-					<p>
-						Hello!I'm Haotian Chen.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fermentum ullamcorper sem, at placerat dolor volutpat ac. Duis nulla enim, condimentum nec ultricies.
-					</p>
-				</div>
-			</div>
-			<div style="background-color: rgba(72, 155, 204, 0.56)">
-				<div>
-					<ul class="infoList">
-						<li>
-							<span class="title">Age:</span>
-							<span class="value">29</span> 
-						</li>
-						<li>
-							<span class="title">Residence:</span>
-							<span class="value">Australia</span> 
-						</li>
-						<li>
-							<span class="title">Address:</span>
-							<span class="value">Level 3 / 57 Coronation Drive, Brisbane</span> 
-						</li>
-						<li>
-							<span class="title">e-mail:</span>
-							<span class="value">info@jiangren.com.au</span> 
-						</li>
-						<li>
-							<span class="title">Phone:</span>
-							<span class="value">+0123 123 456 789</span> 
-						</li>
-					</ul>
-				</div>
-			</div>
+		<!--works page-->
+		<div id='workspage' class="container pagecard">
+			<h1>Works Page</h1>
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 		</div>
-	<script src="./js/jquery-3.3.1.slim.min.js"></script>
-	<script src="./js/popper.min.js" ></script>
-	<script src="./js/bootstrap.min.js"></script>
+
+		<!--comments page-->
+		<div id='commentspage' class="container pagecard">
+			<h1>Comments Page</h1>
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		</div>
+
+		<!-- Bootstrap JS -->
+		<script src="./js/jquery-3.3.1.slim.min.js"></script>
+		<script src="./js/popper.min.js" ></script>
+		<script src="./js/bootstrap.min.js"></script>
 	</body>
 </html>
