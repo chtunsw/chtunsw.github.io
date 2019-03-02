@@ -18,7 +18,7 @@ body {
 	height: 100%;
 	background: white;
 	animation-name: fade;
-	animation-duration: 3s;
+	animation-duration: 1s;
 	animation-fill-mode: forwards;
 }
 
@@ -95,19 +95,47 @@ body {
 	height: 30px;
 } 
 
-.info-list {
-    margin: 0;
-	padding: 0;
-	list-style: none;
+.info-table {
+	width: 100%;
 }
 
-.info-list__title {
-    display: inline-block;
-    min-width: 140px;
+.info-table__title {
+    text-align:left;
 }
 
-.info-list__value {
-	display: inline-block;
-	min-width: 160px;
+.info-table__value {
+	text-align:right;
     color: #9e9e9e;
+}
+
+.resume__title {
+	text-align:center;
+	background-color: #c3cfdc;
+}
+
+.resume__content {
+	margin:10px;
+}
+
+.comment_block {
+	margin:10px;
+}
+
+.login_block {
+	display:none;
+	flex-direction:row;
+	justify-content:center;
+	align-items:center;
+}
+
+.login_block__part {
+	margin:10px;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+}
+
+.comment_textarea {
+	height: 107px;
 }

@@ -13,11 +13,10 @@
 	</head>
 	<body>
 		<!--loader-->
-		<!--
 		<div id="loader" class="loader">
 			<div class="loader__gif"></div>
 		</div>
-		-->
+		
 		
 		<!--header-->
 		<nav id="navbar" class="siteheader navbar navbar-expand-lg navbar-light fixed-top">
@@ -51,10 +50,10 @@
 				<h2 class="pageheader">Home Page</h2>
 				<div class="titleblock">
 					<div class="row">
-						<div class="col-6">
+						<div class="col-lg-6 col-sm-12">
 							<img src='./img/photo/personalPhoto.jpg' class="photo">
 						</div>
-						<div class="col-6 d-flex text-center justify-content-center align-items-center">
+						<div class="col-lg-6 col-sm-12 d-flex text-center justify-content-center align-items-center">
 							<div>
 								<h1>Haotian Chen</h1>
 								<h5>web developer</h5>
@@ -71,7 +70,33 @@
 					</div>
 				</div>
 				<div class="row contentblock">
-					<div class="col-6 d-flex justify-content-center align-items-center">
+					<div class="col-lg-6 col-sm-12 d-flex justify-content-center align-items-center">
+						<table class="info-table">
+							<tr>
+								<td class="info-table__title">Age</td>
+								<td class="info-table__value">24</td>
+							</tr>
+							<tr>
+								<td class="info-table__title">Residence</td>
+								<td class="info-table__value">Australia</td>
+							</tr>
+							<tr>
+								<td class="info-table__title">Address</td>
+								<td class="info-table__value">Maroubra, Sydney</td>
+							</tr>
+							<tr>
+								<td class="info-tablet__title">e-mail</td>
+								<td class="info-table__value">
+									<a href="mailto:email@example.com">chtunsw@gmail.com</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="info-table__title">Phone</td>
+								<td class="info-table__value">+61 450356636</td>
+							</tr>
+						</table>
+					</div>
+					<div class="col-lg-6 col-sm-12 d-flex justify-content-center align-items-center">
 						<div>
 							<h4>About Me</h4>
 							<p style="text-align: justify">
@@ -83,36 +108,188 @@
 							</p>
 						</div>
 					</div>
-					<div class="col-6 d-flex justify-content-center align-items-center">
-						<div>
-							<ul class="info-list">
-								<li><span class="info-list__title">Age</span><span class="info-list__value">24</span></li>
-								<li><span class="info-list__title">Residence</span><span class="info-list__value">Australia</span></li>
-								<li><span class="info-list__title">Address</span><span class="info-list__value">Maroubra, Sydney</span></li>
-								<li><span class="info-list__title">e-mail</span><span class="info-list__value"><a href="mailto:email@example.com">chtunsw@gmail.com</a></span></li>
-								<li><span class="info-list__title">Phone</span><span class="info-list__value">+61 450356636</span></li>
-							</ul>
-						</div>
-					</div>
 				</div>
 			</div>
 
 			<!--resume page-->
 			<div id='resumepage' class="container pagecard">
 				<h2 class="pageheader">Resume</h2>
-				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+				<br>
+				<h3 class="resume__title">Skills</h3>
+				<div class="row">
+					<div class="col-lg-6 col-sm-12 d-flex justify-content-center align-items-center">
+						<h6 style="text-align: justify">
+							Python, Anaconda 
+						</h6>
+					</div>
+					<div class="col-lg-6 col-sm-12 d-flex justify-content-center align-items-center">
+						<h6 style="text-align: justify">
+							CSS, HTML, Javascript
+						</h6>
+					</div>
+					<div class="col-lg-6 col-sm-12 d-flex justify-content-center align-items-center">
+						<h6 style="text-align: justify">
+							React, Material UI, Redux 
+						</h6>
+					</div>
+					<div class="col-lg-6 col-sm-12 d-flex justify-content-center align-items-center">
+						<h6 style="text-align: justify">
+							Mysql, PostgreSQL
+						</h6>
+					</div>
+					<div class="col-lg-6 col-sm-12 d-flex justify-content-center align-items-center">
+						<h6 style="text-align: justify">
+							AWS EC2 
+						</h6>
+					</div>
+					<div class="col-lg-6 col-sm-12 d-flex justify-content-center align-items-center">
+						<h6 style="text-align: justify">
+							Bootstrap, Google fonts, etc
+						</h6>
+					</div>
+				</div>
+				
+				<h3 class="resume__title">Education</h3>
+				<div class="row">
+					<div class="col-lg-6 col-sm-12">
+						<div class="resume__content">
+							<h5>Bachelor of Engineering, Automation</h5>
+							<h6>Sep 2013 to Aug 2017</h6>
+							<h6>Central South University – Changsha, Hunan, China</h6>
+							<p style="text-align: justify">
+								Electronic System Design, Embedded System(AVR, C51, PIC16FXX, PLC), 
+								Automation Technology.
+							</p>
+						</div>
+					</div>
+					<div class="col-lg-6 col-sm-12">
+						<div class="resume__content">
+							<h5>Master of IT, Information Technology</h5>
+							<h6>July 2017 to May 2019</h6>
+							<h6>University of New South Wales – Sydney, Australia</h6>
+							<p style="text-align: justify">
+								Python programming, Machine Learning, Artificial Intelligence, 
+								Web developing(Javascript, HTML), Database System Developing(SQL), 
+								Embedded System Developing(AVR).
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<h3 class="resume__title">Experience</h3>
+				<div class="row">
+					<div class="col-lg-6 col-sm-12">
+						<div class="resume__content">
+							<h5>Web Developer Internship</h5>
+							<h6>Dec 2017 to Mar 2018</h6>
+							<h6>Orbmaps – Sydney (now in Brisbane), Australia</h6>
+							<p style="text-align: justify">
+								4 months’ Frontend internship in Orbmaps. 
+								Mainly working on building web components with React, Material UI, 
+								Javascript, and CSS. 
+							</p>
+						</div>
+					</div>
+				</div>
 			</div>
 
 			<!--works page-->
 			<div id='workspage' class="container pagecard">
 				<h2 class="pageheader">Works</h2>
-				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+				<div class="row">
+					<div class="col-lg-6 col-sm-12">
+						<div class="resume__content">
+							<h5 class="resume__title">Orbmaps - Map Information Research App</h5>
+							<p style="text-align: justify">
+								A map information presentation system designed for property 
+								investors. My job was building components with React and 
+								Material UI to present the data we got from map.
+							</p>
+							<a href="https://www.orbmaps.com">https://www.orbmaps.com</a>
+						</div>
+					</div>
+
+					<div class="col-lg-6 col-sm-12">
+						<div class="resume__content">
+							<h5 class="resume__title">React Weather App</h5>
+							<p style="text-align: justify">
+								A single-page weather report app accomplished by React, 
+								Material UI, React-Redux and APIXU Forecast API.
+							</p>
+							<a href="http://histree.club">http://histree.club</a>
+							<br>
+							<a href="https://github.com/chtunsw/weather-app">https://github.com/chtunsw/weather-app</a>
+						</div>
+					</div>
+
+					<div class="col-lg-6 col-sm-12">
+						<div class="resume__content">
+							<h5 class="resume__title">Personal Website</h5>
+							<p style="text-align: justify">
+									A single-page personal website accomplished by pure HTML, 
+									CSS, Javascript (with Bootstrap).
+							</p>
+							<a href="https://chtunsw.github.io">https://chtunsw.github.io</a>
+							<br>
+							<a href="https://github.com/chtunsw/chtunsw.github.io">https://github.com/chtunsw/chtunsw.github.io</a>
+						</div>
+					</div>
+					
+					<div class="col-lg-6 col-sm-12">
+						<div class="resume__content">
+							<h5 class="resume__title">React Components</h5>
+							<p style="text-align: justify">
+								Some self-made react components for practice, including Image Card, 
+								Clock Card, Feed Flickr API…Accomplished with libraries such as Moment-Timezone, 
+								React-Redux, Axios, React-Router-Dom, etc.
+							</p>
+							<a href="https://github.com/chtunsw/react-components">https://github.com/chtunsw/react-components</a>
+						</div>
+					</div>
+				</div>
 			</div>
 
 			<!--comments page-->
+
+			<!--firebase import-->
+			<script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
+			<!--OAuth import-->
+			<meta name="google-signin-client_id" content="802438001010-m1k5ms9adurv18itea8l31fbp0jig4mu.apps.googleusercontent.com">
+			<script src="https://apis.google.com/js/platform.js" async defer></script>
+			<!--firebase/OAuth script-->
+			<script src="./js/firebase.js"></script>
+
 			<div id='commentspage' class="container pagecard">
 				<h2 class="pageheader">Comments</h2>
-				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+				<div class="row">
+					<div class="col-12 d-flex flex-column justify-content-center align-items-center">
+						<div class="comment_block">
+							<!--comments-->
+							<ul id="comments"></ul>
+
+							<!--OAuth login button-->
+							<div id="login_button" class="g-signin2" data-onsuccess="onSignIn"></div>
+							
+							<!--login area-->
+							<div id="login_area" class="login_block">
+								<div class="login_block__part">
+									<!--OAuth info-->
+									<img id="pic" width="83" height="83" />
+									<span id="email"></span>
+									<!--OAuth log out-->
+									<button id="logout" class="btn btn-danger">sign out</button>
+								</div>
+								<div class="login_block__part">
+									<!--add comment-->
+									<textarea placeholder="input comment here" id="commentID" class="comment_textarea"></textarea>
+									<button id="buttonID" class="btn btn-primary">comment</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 
 		</div>
