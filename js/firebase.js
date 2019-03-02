@@ -48,7 +48,7 @@ function addComment(){
 function addCommentElement(id, name, email, img, comment, time) {
     //get comments list element
     var ele = document.getElementById("comments")
-    ele.innerHTML += '<li class="list-group-item">'+'id:'+id+'<br>'+'<img width="20" height="20" src="'+img+'" />'+name+'<br>'+email+'<br>'+'<span style="color:blue">'+comment+'</span>' + '<br>' + time +'</li>'
+    ele.innerHTML += '<li class="list-group-item">'+'<img width="20" height="20" src="'+img+'" />'+name+'<br>'+'id:'+id+'<br>'+email+'<br>'+'<span style="color:blue">'+comment+'</span>' + '<br>' + time +'</li>'
 }
 
 //add onload event listener
